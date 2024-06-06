@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Classification and Recommendation</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="patti">
+
+    </div>
+    <div class="items">
+        <div class="navbar">
+            <div class="nleft">
+                <img height="100px" src="logo.jpg" alt="logo" class="logo">
+            </div>
+            <div class="nright">
+                <ul>
+                    <li>HOME</li>
+                    <li>GENRE LIST</li>
+                    <li>ABOUT US</li>
+                    <li>CONTACT US</li>
+                </ul>
+            </div>
+        </div>
+        <div id="to_upload" style="display: none;">
+            <form id="audioForm">
+                <label for="audioFile">Choose an audio file:</label>
+                <input type="file" id="audioFile" name="audioFile" accept="audio/*" required>
+                <button type="button" onclick="uploadAudio()">Upload</button>
+                <button id="cancel" onclick="defaulty()">Cancel</button>
+            </form>
+        </div>
+        <div class="container">
+            <div class="head">
+                <h1>CHOICES, MUSIC, PLAY</h1>
+                <h3>This Website helps you Classify, Recommend and play the best of your CHOICES</h3>
+            </div>
+            <div class="choices">
+                <form id="songForm">
+                    <div class="inform">
+                        <input type="text" id="songName" placeholder="Enter Song Name...">
+                        <p>OR</p>
+                        <button onclick="upload(event)">Upload a File</button>
+                    </div>
+                    <button type="button" onclick="sendRequest()">Submit</button>
+                </form>
+            </div>
+            <div id="responses" style="display: none;">
+                <p id="server_res"></p>
+                <div id="recc_button" style="display: block;"><button type="button" onclick="recommend()">Show Recommendations</button></div>
+            </div>
+        </div>
+        <script src="server.js"></script>
+    </div>
+    <div id="recommendations" style="display: none;">
+        <section class="articles">
+            <article>
+              <div class="article-wrapper">
+                <h3>ORIGINAL SONG</h3>
+                <figure>
+                  <img src="" id="img1" alt="" />
+                </figure>
+                <div class="article-body">
+                  <h2 id="name1"></h2>
+                  <p id="artist1"></p>
+                  <a href="#" id="link1" class="read-more">
+                    PLAY NOW
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+            <article>
+          
+              <div class="article-wrapper">
+                <figure>
+                  <img src="" id="img2" alt="" />
+                </figure>
+                <div class="article-body">
+                  <h2 id="name2"></h2>
+                  <p id="artist2"></p>
+                  <a href="#" id="link2" class="read-more">
+                    PLAY NOW
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+            <article>
+          
+              <div class="article-wrapper">
+                <figure>
+                  <img src="" id="img3" alt="" />
+                </figure>
+                <div class="article-body">
+                  <h2 id="name3"></h2>
+                  <p id="artist3"></p>
+                  <a href="" id="link3" class="read-more">
+                    PLAY NOW
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+            <article>
+          
+              <div class="article-wrapper">
+                <figure>
+                  <img src="" id="img4" alt="" />
+                </figure>
+                <div class="article-body">
+                  <h2 id="name4"></h2>
+                  <p id="artist4"></p>
+                  <a href="" id="link4" class="read-more">
+                    PLAY NOW
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+            <article>
+          
+              <div class="article-wrapper">
+                <figure>
+                  <img src="" id="img5" alt="" />
+                </figure>
+                <div class="article-body">
+                  <h2 id="name5"></h2>
+                  <p id="artist5"></p>
+                  <a href="" id="link5" class="read-more">
+                    PLAY NOW
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+            <article>
+          
+              <div class="article-wrapper">
+                <figure>
+                  <img src="" id="img6" alt="" />
+                </figure>
+                <div class="article-body">
+                  <h2 id="name6"></h2>
+                  <p id="artist6"></p>
+                  <a href="" id="link6" class="read-more">
+                    PLAY NOW
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+          </section>
+    </div>
+</body>
+</html>
